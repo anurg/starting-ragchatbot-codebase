@@ -7,7 +7,10 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Course Materials Assistant</title>
-    <link rel="stylesheet" href="style.css?v=9">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
     <div class="container">
@@ -19,6 +22,17 @@
         <div class="main-content">
             <!-- Left Sidebar -->
             <aside class="sidebar">
+                <!-- Brand -->
+                <div class="sidebar-brand">
+                    <h2>Course Assistant</h2>
+                    <p>AI-powered course explorer</p>
+                </div>
+
+                <!-- New Chat Button -->
+                <div class="sidebar-section">
+                    <button class="new-chat-btn" id="newChatBtn">+ New Chat</button>
+                </div>
+
                 <!-- Course Stats -->
                 <div class="sidebar-section">
                     <details class="stats-collapsible">
@@ -53,12 +67,29 @@
 
             <!-- Main Chat Area -->
             <main class="chat-main">
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <div class="chat-header-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="chat-header-text">
+                        <h1>Course Materials Assistant</h1>
+                        <p>Ask about courses, lessons, and content</p>
+                    </div>
+                    <div class="chat-header-status">
+                        <span class="status-dot"></span>
+                        Online
+                    </div>
+                </div>
+
                 <div class="chat-container">
                     <div id="chatMessages" class="chat-messages"></div>
                     <div class="chat-input-container">
-                        <input 
-                            type="text" 
-                            id="chatInput" 
+                        <input
+                            type="text"
+                            id="chatInput"
                             placeholder="Ask about courses, lessons, or specific content..."
                             autocomplete="off"
                         >
@@ -76,6 +107,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="script.js?v=9"></script>
+    <script src="script.js?v=10"></script>
 </body>
 </html>

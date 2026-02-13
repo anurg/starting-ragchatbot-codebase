@@ -40,10 +40,15 @@ class QueryRequest(BaseModel):
     query: str
     session_id: Optional[str] = None
 
+class Source(BaseModel):
+    """Model for a source citation with optional link"""
+    label: str
+    link: Optional[str] = None
+
 class QueryResponse(BaseModel):
     """Response model for course queries"""
     answer: str
-    sources: List[str]
+    sources: List[Source]
     session_id: str
 
 class CourseStats(BaseModel):
@@ -67,7 +72,7 @@ async def query_documents(request: QueryRequest):
         
         return QueryResponse(
             answer=answer,
-            sources=sources,
+            sources=[Source(label=s) for s in sources],
             session_id=session_id
         )
     except Exception as e:
@@ -116,4 +121,4 @@ class DevStaticFiles(StaticFiles):
     
     
 # Serve static files for the frontend
-app.mount("/", StaticFiles(directory="../frontend", html=True), name="static")
+app.mount("/", DevStaticFiles(directory="../frontend", html=True), name="static")
